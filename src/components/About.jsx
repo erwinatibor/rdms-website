@@ -106,8 +106,9 @@ export default function About() {
           </div>
 
           <div className="panel vision-card reveal">
-            <h3>Advancing Oral &amp; Public Health Through Innovation and Partnership</h3>
-            <p>RDMS works at the intersection of clinical service, prevention, research, and policy. We believe oral health belongs inside the larger conversation on national health outcomes, medical education, and equitable access to care.</p>
+            <div className="vision-kicker">Vision</div>
+            <h3>Our Vision</h3>
+            <p className="vision-text">RDMS Rwanda is a nonprofit, professional organization based in Ngoma, Huye, in the south of Rwanda. It unites dental and medical students and professionals to promote oral and public health through outreach, research, innovation, and partnerships that advance healthcare in Rwanda and beyond.</p>
             <div className="metric-grid">
               <div className="metric"><strong>2024</strong><span>Founded</span></div>
               <div className="metric"><strong>Huye</strong><span>Based in Rwanda</span></div>
