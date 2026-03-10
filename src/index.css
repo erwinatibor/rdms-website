@@ -213,6 +213,11 @@ body.dark textarea {
   background: rgba(255,255,255,0.03);
 }
 
+body.dark select option {
+  background: #1a1a1a;
+  color: #fff;
+}
+
 body.dark .eyebrow,
 body.dark .chip,
 body.dark .contact-badge,
