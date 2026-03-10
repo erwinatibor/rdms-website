@@ -71,7 +71,7 @@ const team = [
     position: 'Senior Lecturer',
     occupation: 'BDS FWACS FICS',
     bio: 'Senior Lecturer at PRD, CMHS, University of Rwanda. Contact: nimbiye@gmail.com',
-    photo: null,
+    photo: '/Dr. Agholor CN.jpeg',
   },
 ];
 
