@@ -63,13 +63,19 @@ export default function Hero() {
       <div className="partners-strip">
         <div className="container">
           <div className="partners-label">Partners &amp; Affiliates</div>
-          <div className="partners-row">
-            <div className="partner-logo"><img src="/ADC.jpeg" alt="African Dental Congress" /></div>
-            <div className="partner-logo"><img src="/DentAfrica.png" alt="DentAfrica" /></div>
-            <div className="partner-logo"><img src="/chub.png" alt="CHUB" /></div>
-            <div className="partner-logo"><img src="/Firat.png" alt="Firat" /></div>
-            <div className="partner-logo"><img src="/hangahubs.png" alt="Hangahubs" /></div>
-            <div className="partner-logo"><img src="/anatomy.png" alt="Anatomy" /></div>
+        </div>
+        <div className="marquee-track">
+          <div className="marquee-inner">
+            {[0, 1].map((copy) => (
+              <div className="marquee-set" key={copy} aria-hidden={copy === 1}>
+                <div className="partner-logo"><img src="/ADC.jpeg" alt="African Dental Congress" /></div>
+                <div className="partner-logo"><img src="/DentAfrica.png" alt="DentAfrica" /></div>
+                <div className="partner-logo"><img src="/chub.png" alt="CHUB" /></div>
+                <div className="partner-logo"><img src="/Firat.png" alt="Firat" /></div>
+                <div className="partner-logo"><img src="/hangahubs.png" alt="Hangahubs" /></div>
+                <div className="partner-logo"><img src="/anatomy.png" alt="Anatomy" /></div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
