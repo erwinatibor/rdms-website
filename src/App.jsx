@@ -12,6 +12,7 @@ import Research from './components/Research';
 import Achievements from './components/Achievements';
 import PhotoGallery from './components/PhotoGallery';
 import Contact from './components/Contact';
+import Chatbot from './components/Chatbot';
 
 function GalleryPage() {
   return (
@@ -78,6 +79,7 @@ export default function App() {
         <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
+      <Chatbot />
     </>
   );
 }
