@@ -50,8 +50,8 @@ export default function Achievements() {
         <p className="lead">Key milestones, events, and community impact moments from RDMS Rwanda.</p>
 
         <div className="achievements-list">
-          {achievements.map((a) => (
-            <div className="achievement-card" key={a.title}>
+          {achievements.map((a, idx) => (
+            <div className={`achievement-card${idx % 2 === 0 ? ' achievement-card-img-left' : ''}`} key={a.title}>
               <div className="achievement-header">
                 <div className="achievement-meta">
                   <span className={`tag ${a.statusCls}`}>{a.status}</span>
