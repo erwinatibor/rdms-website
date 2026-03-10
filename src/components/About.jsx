@@ -23,7 +23,7 @@ const faqs = [
   },
 ];
 
-const team = [
+const leadership = [
   {
     name: 'IGISUBIZO Jimmy Confiance',
     position: 'CEO & President',
@@ -54,13 +54,14 @@ const team = [
     occupation: 'Dental Surgeon',
     photo: '/MBAGOROZIKI Samuel.jpeg',
   },
-  {
-    name: 'Professor Julienne',
-    position: 'Mentor',
-    occupation: 'Lecturer · Associate Professor of Community Dentistry, University of Rwanda',
-    photo: '/Julienne.jpeg',
-  },
 ];
+
+const mentor = {
+  name: 'Professor Julienne',
+  position: 'Mentor',
+  occupation: 'Lecturer · Associate Professor of Community Dentistry, University of Rwanda',
+  photo: '/Julienne.jpeg',
+};
 
 function FAQ() {
   const [open, setOpen] = useState(null);
@@ -131,7 +132,7 @@ export default function About() {
             <p>The dedicated professionals driving RDMS Rwanda's mission forward.</p>
           </div>
           <div className="team-grid">
-            {team.map((member) => (
+            {leadership.map((member) => (
               <div className="team-card reveal" key={member.name}>
                 <div className="team-photo-wrap">
                   <img src={member.photo} alt={member.name} className="team-photo" />
@@ -144,6 +145,20 @@ export default function About() {
                 </div>
               </div>
             ))}
+          </div>
+
+          <div className="mentor-row reveal">
+            <div className="team-card team-card-mentor">
+              <div className="team-photo-wrap">
+                <img src={mentor.photo} alt={mentor.name} className="team-photo" />
+                <div className="team-photo-overlay" />
+              </div>
+              <div className="team-info">
+                <div className="team-occupation">{mentor.occupation}</div>
+                <h3 className="team-name">{mentor.name}</h3>
+                <div className="team-position">{mentor.position}</div>
+              </div>
+            </div>
           </div>
         </div>
 
