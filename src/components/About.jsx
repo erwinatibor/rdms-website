@@ -25,39 +25,52 @@ const faqs = [
 
 const team = [
   {
-    name: 'IGISUBIZO Jimmy Confiance',
-    position: 'CEO & President',
+    name: 'IGISUBIZO J. Confiance',
+    position: 'Chief Executive Officer',
     occupation: 'Dental Surgeon',
+    bio: 'Leads organization strategy, oversees operations, represents RDMS, ensures impact.',
     photo: '/IGISUBIZO Jimmy Confiance.jpeg',
   },
   {
     name: 'DUSHIMITANGA Luc',
-    position: 'Vice President of Finance',
+    position: 'V.P. Finance',
     occupation: 'Medicine',
+    bio: 'Manages finances, budgets, fundraising, financial reporting, and resource allocation.',
     photo: '/DUSHIMITANGA Luc.jpeg',
   },
   {
     name: 'NATUKUNDA Sharon',
     position: 'General Secretary',
     occupation: 'Medicine',
+    bio: 'Coordinates communication, records, meetings, execution, and internal organizational support.',
     photo: '/NATUKUNDA Sharon.jpeg',
   },
   {
     name: 'KUBWIMANA Steven',
-    position: 'VP of External Affairs',
+    position: 'V.P. External Affairs',
     occupation: 'Dental Surgeon',
+    bio: 'Manages partnerships, outreach, representation, collaborations, and international stakeholder engagement.',
     photo: '/KUBWIMANA Steven.jpeg',
   },
   {
     name: 'MBAGOROZIKI Samuel',
-    position: 'VP of Internal Affairs',
+    position: 'V.P. Internal Affairs',
     occupation: 'Dental Surgeon',
+    bio: 'Oversees internal operations, member engagement, event coordination, and organizational cohesion.',
     photo: '/MBAGOROZIKI Samuel.jpeg',
+  },
+  {
+    name: 'Liza Gakire Lucretia',
+    position: 'Research Coordinator',
+    occupation: 'Research',
+    bio: 'Leads research initiatives, data collection, publications, collaborations, and academic development.',
+    photo: null,
   },
   {
     name: 'Professor Julienne',
     position: 'Mentor',
-    occupation: 'Lecturer · Associate Professor of Community Dentistry, University of Rwanda',
+    occupation: 'Associate Professor of Community Dentistry, University of Rwanda',
+    bio: 'Guides RDMS with academic mentorship, strategic counsel, and institutional expertise in community dentistry.',
     photo: '/Julienne.jpeg',
   },
 ];
@@ -79,6 +92,60 @@ function FAQ() {
           {open === i && <div className="faq-a">{item.a}</div>}
         </div>
       ))}
+    </div>
+  );
+}
+
+function TeamSection() {
+  const [activeCard, setActiveCard] = useState(null);
+
+  return (
+    <div className="team-section reveal">
+      <div className="section-head" style={{ marginBottom: '32px' }}>
+        <div className="section-kicker">Our Leadership</div>
+        <h2>Meet the Team</h2>
+        <p>The dedicated professionals driving RDMS Rwanda's mission forward.</p>
+      </div>
+      <div className="team-grid-v2">
+        {team.map((member, i) => (
+          <div
+            className={`team-card-v2${activeCard === i ? ' team-card-v2-active' : ''}`}
+            key={member.name}
+            onClick={() => setActiveCard(activeCard === i ? null : i)}
+          >
+            <div className="tc2-photo-side">
+              {member.photo ? (
+                <img src={member.photo} alt={member.name} />
+              ) : (
+                <div className="tc2-photo-placeholder">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                    <circle cx="12" cy="7" r="4"/>
+                  </svg>
+                </div>
+              )}
+              <div className="tc2-photo-gradient" />
+            </div>
+            <div className="tc2-content">
+              <div className="tc2-occupation">{member.occupation}</div>
+              <h3 className="tc2-name">{member.name}</h3>
+              <div className="tc2-position">{member.position}</div>
+              <div className="tc2-expand-hint">
+                <span>{activeCard === i ? 'Close' : 'View details'}</span>
+                <svg className={`tc2-chevron${activeCard === i ? ' tc2-chevron-up' : ''}`} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </div>
+            </div>
+            <div className={`tc2-popup${activeCard === i ? ' tc2-popup-open' : ''}`}>
+              <div className="tc2-popup-inner">
+                <div className="tc2-popup-role">{member.position}</div>
+                <p className="tc2-popup-bio">{member.bio}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
@@ -123,29 +190,7 @@ export default function About() {
           </div>
         </div>
 
-        {/* Team Section */}
-        <div className="team-section reveal">
-          <div className="section-head" style={{ marginBottom: '32px' }}>
-            <div className="section-kicker">Our Leadership</div>
-            <h2>Meet the Team</h2>
-            <p>The dedicated professionals driving RDMS Rwanda's mission forward.</p>
-          </div>
-          <div className="team-grid">
-            {team.map((member) => (
-              <div className="team-card reveal" key={member.name}>
-                <div className="team-photo-wrap">
-                  <img src={member.photo} alt={member.name} className="team-photo" />
-                  <div className="team-photo-overlay" />
-                </div>
-                <div className="team-info">
-                  <div className="team-occupation">{member.occupation}</div>
-                  <h3 className="team-name">{member.name}</h3>
-                  <div className="team-position">{member.position}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+        <TeamSection />
 
         {/* FAQ Section */}
         <div className="faq-section reveal">
