@@ -66,6 +66,13 @@ const team = [
     bio: 'Guides RDMS with academic mentorship, strategic counsel, and institutional expertise in community dentistry.',
     photo: '/Julienne.jpeg',
   },
+  {
+    name: 'Dr. Agholor CN',
+    position: 'Senior Lecturer',
+    occupation: 'BDS FWACS FICS',
+    bio: 'Senior Lecturer at PRD, CMHS, University of Rwanda. Contact: nimbiye@gmail.com',
+    photo: null,
+  },
 ];
 
 function FAQ() {
