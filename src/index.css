@@ -1506,8 +1506,13 @@ footer {
 
 .footer-social-row a {
   color: rgba(255,255,255,0.75) !important;
-  font-size: 14px !important;
+  font-size: 13px !important;
   white-space: nowrap;
+  border: none !important;
+  padding: 0 !important;
+  background: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
 }
 
 .footer-bottom {
