@@ -530,7 +530,9 @@ h1 .accent { color: var(--green); }
 }
 
 /* ── Achievements ─────────────────────────────── */
-.achievements-section { background: var(--surface); }
+.achievements-section { background: var(--surface); text-align: center; }
+.achievements-section .lead { margin-left: auto; margin-right: auto; }
+.achievement-header { text-align: left; }
 
 .achievements-list {
   display: flex;
