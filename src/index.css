@@ -1491,8 +1491,13 @@ footer {
 
 .footer-social-row {
   display: flex;
-  flex-direction: column;
-  gap: 4px;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
+
+.footer-social-row a {
+  font-size: 12px !important;
+  white-space: nowrap;
 }
 
 .footer-bottom {
