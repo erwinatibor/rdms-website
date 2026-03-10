@@ -38,14 +38,14 @@ export default function Footer() {
             <Link to="/contact">rdmspresident13@gmail.com</Link><br />
             <Link to="/contact">RDB Code: 143885158</Link>
           </div>
-          <div>
-            <h4>Follow Us</h4>
-            <div className="footer-social-row">
-              <a href="https://x.com/RDMS_rw" target="_blank" rel="noopener noreferrer">𝕏 Twitter / X</a>
-              <a href="https://www.instagram.com/rdms_rw/" target="_blank" rel="noopener noreferrer">📸 Instagram</a>
-              <a href="https://www.linkedin.com/in/rdms-dento-medical-society-rwanda-24035029b" target="_blank" rel="noopener noreferrer">💼 LinkedIn</a>
-              <a href="https://www.tiktok.com/@rdmsrw" target="_blank" rel="noopener noreferrer">🎵 TikTok</a>
-            </div>
+        </div>
+        <div className="footer-follow">
+          <h4>Follow Us</h4>
+          <div className="footer-social-row">
+            <a href="https://x.com/RDMS_rw" target="_blank" rel="noopener noreferrer">𝕏 Twitter / X</a>
+            <a href="https://www.instagram.com/rdms_rw/" target="_blank" rel="noopener noreferrer">📸 Instagram</a>
+            <a href="https://www.linkedin.com/in/rdms-dento-medical-society-rwanda-24035029b" target="_blank" rel="noopener noreferrer">💼 LinkedIn</a>
+            <a href="https://www.tiktok.com/@rdmsrw" target="_blank" rel="noopener noreferrer">🎵 TikTok</a>
           </div>
         </div>
         <div className="footer-bottom">

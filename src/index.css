@@ -1461,10 +1461,9 @@ footer {
 
 .footer-columns {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   padding-bottom: 22px;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
   text-align: center;
 }
 
@@ -1484,14 +1483,30 @@ footer {
   font-family: 'Inter', sans-serif;
 }
 
+.footer-follow {
+  text-align: center;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.footer-follow h4 {
+  color: rgba(255,255,255,0.6);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-bottom: 12px;
+  font-family: 'Inter', sans-serif;
+}
+
 .footer-social-row {
   display: flex;
-  gap: 8px;
-  flex-wrap: nowrap;
+  gap: 16px;
+  justify-content: center;
 }
 
 .footer-social-row a {
-  font-size: 12px !important;
+  color: rgba(255,255,255,0.75) !important;
+  font-size: 14px !important;
   white-space: nowrap;
 }
 
