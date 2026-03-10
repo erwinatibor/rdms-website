@@ -1491,9 +1491,8 @@ footer {
 
 .footer-social-row {
   display: flex;
-  gap: 16px;
-  justify-content: center;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .footer-bottom {
