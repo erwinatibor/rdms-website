@@ -54,6 +54,12 @@ const team = [
     occupation: 'Dental Surgeon',
     photo: '/MBAGOROZIKI Samuel.jpeg',
   },
+  {
+    name: 'Professor Julienne',
+    position: 'Mentor',
+    occupation: 'Lecturer · Associate Professor of Community Dentistry, University of Rwanda',
+    photo: '/Julienne.jpeg',
+  },
 ];
 
 function FAQ() {
