@@ -4,6 +4,15 @@ const achievements = [
   {
     status: 'Completed',
     statusCls: 'active',
+    date: '20 Feb 2026',
+    title: 'World Ectodermal Dysplasia Day 2026',
+    location: 'Huye, Rwanda · In-person & Live Session',
+    desc: 'On World Ectodermal Dysplasia Day, @RDMS_rw hosted both an in-person event and a live session to raise awareness about Ectodermal Dysplasia, promote early detection and referral, and advocate for coordinated support for affected individuals and families.',
+    images: ['/Dysplasia.jpeg'],
+  },
+  {
+    status: 'Completed',
+    statusCls: 'active',
     date: '2025–2026',
     title: 'Oral Health Outreach in Primary Schools',
     location: 'Eden Primary School, Huye District',
