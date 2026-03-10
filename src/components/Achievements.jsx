@@ -2,24 +2,6 @@ import { useState } from 'react';
 
 const achievements = [
   {
-    status: 'Completed',
-    statusCls: 'active',
-    date: '20 Feb 2026',
-    title: 'World Ectodermal Dysplasia Day 2026',
-    location: 'Huye, Rwanda · In-person & Live Session',
-    desc: 'On World Ectodermal Dysplasia Day, @RDMS_rw hosted both an in-person event and a live session to raise awareness about Ectodermal Dysplasia, promote early detection and referral, and advocate for coordinated support for affected individuals and families.',
-    images: ['/Dysplasia.jpeg'],
-  },
-  {
-    status: 'Completed',
-    statusCls: 'active',
-    date: '2025–2026',
-    title: 'Oral Health Outreach in Primary Schools',
-    location: 'Eden Primary School, Huye District',
-    desc: 'RDMS conducted oral health outreach sessions at Eden Primary School in Huye, delivering hands-on education to pupils on proper brushing techniques, cavity prevention, and the importance of good oral hygiene habits from an early age.',
-    images: ['/Oral health.jpeg'],
-  },
-  {
     status: 'Upcoming',
     statusCls: 'planned',
     date: '20 March 2026',
@@ -36,6 +18,24 @@ const achievements = [
     location: 'Live on YouTube · @official-firat RDMS-rw',
     desc: 'The next episode of the Dento Medicine Chronicles (DMC) Brave Talk series, featuring expert guest speakers discussing critical themes at the intersection of oral and systemic health in Rwanda.',
     images: ['/To be done this april.jpeg'],
+  },
+  {
+    status: 'Completed',
+    statusCls: 'active',
+    date: '20 Feb 2026',
+    title: 'World Ectodermal Dysplasia Day 2026',
+    location: 'Huye, Rwanda · In-person & Live Session',
+    desc: 'On World Ectodermal Dysplasia Day, @RDMS_rw hosted both an in-person event and a live session to raise awareness about Ectodermal Dysplasia, promote early detection and referral, and advocate for coordinated support for affected individuals and families.',
+    images: ['/Dysplasia.jpeg'],
+  },
+  {
+    status: 'Completed',
+    statusCls: 'active',
+    date: '2025–2026',
+    title: 'Oral Health Outreach in Primary Schools',
+    location: 'Eden Primary School, Huye District',
+    desc: 'RDMS conducted oral health outreach sessions at Eden Primary School in Huye, delivering hands-on education to pupils on proper brushing techniques, cavity prevention, and the importance of good oral hygiene habits from an early age.',
+    images: ['/Oral health.jpeg'],
   },
 ];
 
