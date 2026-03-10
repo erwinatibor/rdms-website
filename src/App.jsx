@@ -10,12 +10,14 @@ import Services from './components/Services';
 import Projects from './components/Projects';
 import Research from './components/Research';
 import Achievements from './components/Achievements';
+import PhotoGallery from './components/PhotoGallery';
 import Contact from './components/Contact';
 
 function GalleryPage() {
   return (
     <>
       <Achievements />
+      <PhotoGallery />
       <Projects />
       <Research />
     </>
