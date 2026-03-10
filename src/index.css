@@ -877,13 +877,15 @@ h1 .accent { color: var(--green); }
   margin-bottom: 22px;
 }
 
-/* Marquee track with edge fades */
+/* Marquee track — constrained to center with soft edge fades */
 .marquee-track {
   position: relative;
   overflow: hidden;
-  width: 100%;
-  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  width: 70%;
+  max-width: 900px;
+  margin: 0 auto;
+  mask-image: linear-gradient(to right, transparent 0%, black 14%, black 86%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 14%, black 86%, transparent 100%);
 }
 
 .marquee-inner {
