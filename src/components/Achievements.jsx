@@ -2,6 +2,15 @@ import { useState } from 'react';
 
 const achievements = [
   {
+    status: 'Completed',
+    statusCls: 'active',
+    date: '2025–2026',
+    title: 'Oral Health Outreach in Primary Schools',
+    location: 'Eden Primary School, Huye District',
+    desc: 'RDMS conducted oral health outreach sessions at Eden Primary School in Huye, delivering hands-on education to pupils on proper brushing techniques, cavity prevention, and the importance of good oral hygiene habits from an early age.',
+    images: ['/Oral health.jpeg'],
+  },
+  {
     status: 'Upcoming',
     statusCls: 'planned',
     date: '20 March 2026',
