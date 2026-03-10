@@ -60,13 +60,6 @@ const team = [
     photo: '/MBAGOROZIKI Samuel.jpeg',
   },
   {
-    name: 'Liza Gakire Lucretia',
-    position: 'Research Coordinator',
-    occupation: 'Research',
-    bio: 'Leads research initiatives, data collection, publications, collaborations, and academic development.',
-    photo: null,
-  },
-  {
     name: 'Professor Julienne',
     position: 'Mentor',
     occupation: 'Lecturer',
