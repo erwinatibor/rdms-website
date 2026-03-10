@@ -1699,6 +1699,8 @@ body.dark .team-card-v2-active {
   display: grid;
   gap: 12px;
   max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .faq-item {
