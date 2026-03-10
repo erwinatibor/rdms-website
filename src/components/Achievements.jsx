@@ -8,6 +8,15 @@ const achievements = [
     desc: 'RDMS will be conducting oral health screenings for inmates and making oral health advocacy at Huye Collections Center. A meaningful outreach bringing dental care and awareness to those who need it most.',
     images: ['/RDMS (34).png', '/RDMS (35).png'],
   },
+  {
+    status: 'Upcoming',
+    statusCls: 'planned',
+    date: 'April 2026',
+    title: 'Dento Medicine Chronicles — Series EP5',
+    location: 'Live on YouTube · @official-firat RDMS-rw',
+    desc: 'The next episode of the Dento Medicine Chronicles (DMC) Brave Talk series, featuring expert guest speakers discussing critical themes at the intersection of oral and systemic health in Rwanda.',
+    images: ['/To be done this april.jpeg'],
+  },
 ];
 
 export default function Achievements() {
