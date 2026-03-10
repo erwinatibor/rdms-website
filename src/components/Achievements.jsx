@@ -6,7 +6,7 @@ const achievements = [
     title: 'World Oral Health Day 2026',
     location: 'Huye Collections Center, Huye District',
     desc: 'RDMS will be conducting oral health screenings for inmates and making oral health advocacy at Huye Collections Center. A meaningful outreach bringing dental care and awareness to those who need it most.',
-    images: ['/partnership/RDMS (34).png', '/partnership/RDMS (35).png'],
+    images: ['/RDMS (34).png', '/RDMS (35).png'],
   },
 ];
 
