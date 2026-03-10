@@ -69,7 +69,7 @@ const team = [
   {
     name: 'Professor Julienne',
     position: 'Mentor',
-    occupation: 'Associate Professor of Community Dentistry, University of Rwanda',
+    occupation: 'Lecturer',
     bio: 'Guides RDMS with academic mentorship, strategic counsel, and institutional expertise in community dentistry.',
     photo: '/Julienne.jpeg',
   },
