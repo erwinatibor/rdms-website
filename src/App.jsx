@@ -9,11 +9,13 @@ import About from './components/About';
 import Services from './components/Services';
 import Projects from './components/Projects';
 import Research from './components/Research';
+import Achievements from './components/Achievements';
 import Contact from './components/Contact';
 
 function GalleryPage() {
   return (
     <>
+      <Achievements />
       <Projects />
       <Research />
     </>
