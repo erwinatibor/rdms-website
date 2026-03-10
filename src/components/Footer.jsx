@@ -35,7 +35,7 @@ export default function Footer() {
             <h4>Contact</h4>
             <Link to="/contact">Ngoma, Huye</Link><br />
             <Link to="/contact">+250 791 853 120</Link><br />
-            <Link to="/contact">[email protected]</Link><br />
+            <Link to="/contact">rdmspresident13@gmail.com</Link><br />
             <Link to="/contact">RDB Code: 143885158</Link>
           </div>
           <div>
