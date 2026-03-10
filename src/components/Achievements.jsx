@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 const achievements = [
   {
     status: 'Upcoming',
@@ -20,6 +22,8 @@ const achievements = [
 ];
 
 export default function Achievements() {
+  const [lightbox, setLightbox] = useState(null); // { src, alt }
+
   return (
     <section id="achievements" className="section achievements-section">
       <div className="container reveal">
@@ -47,9 +51,19 @@ export default function Achievements() {
               </div>
               <div className="achievement-images">
                 {a.images.map((src, i) => (
-                  <div className="achievement-img-wrap" key={i}>
+                  <div
+                    className="achievement-img-wrap"
+                    key={i}
+                    onClick={() => setLightbox({ src, alt: `${a.title} photo ${i + 1}` })}
+                  >
                     <img src={src} alt={`${a.title} photo ${i + 1}`} />
                     <div className="achievement-img-overlay" />
+                    <div className="achievement-img-zoom-hint">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                        <line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/>
+                      </svg>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -57,6 +71,18 @@ export default function Achievements() {
           ))}
         </div>
       </div>
+
+      {lightbox && (
+        <div className="lightbox-backdrop" onClick={() => setLightbox(null)}>
+          <button className="lightbox-close" onClick={() => setLightbox(null)}>✕</button>
+          <img
+            src={lightbox.src}
+            alt={lightbox.alt}
+            className="lightbox-img"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
     </section>
   );
 }
