@@ -1464,19 +1464,8 @@ footer {
 
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 20px;
-}
-
-.mentor-row {
-  display: flex;
-  justify-content: center;
-  margin-top: 28px;
-}
-
-.mentor-row .team-card-mentor {
-  max-width: 220px;
-  width: 100%;
 }
 
 .team-card {
