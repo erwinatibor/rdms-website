@@ -4,19 +4,19 @@ export default function Footer() {
   return (
     <footer>
       <div className="container footer-card reveal">
-        <div className="footer-top">
-          <div>
-            <Link to="/" className="brand" style={{ marginBottom: '12px', textDecoration: 'none' }}>
-              <div className="brand-mark">
-                <img src="/logo.png" alt="RDMS Logo" style={{ width: '34px', height: '34px', objectFit: 'contain' }} />
-              </div>
-              <div className="brand-text">
-                <div className="brand-title" style={{ color: 'white' }}>RDMS — Dento-Medical Society Rwanda</div>
-                <div className="brand-sub" style={{ color: 'rgba(255,255,255,0.62)' }}>Rwanda's oral health future</div>
-              </div>
-            </Link>
-            <p>Uniting professionals, students, and communities to advance oral and public health through service delivery, prevention, research, and advocacy.</p>
-          </div>
+        <div className="footer-brand-center">
+          <Link to="/" className="brand" style={{ marginBottom: '12px', textDecoration: 'none', justifyContent: 'center' }}>
+            <div className="brand-mark">
+              <img src="/logo.png" alt="RDMS Logo" style={{ width: '34px', height: '34px', objectFit: 'contain' }} />
+            </div>
+            <div className="brand-text">
+              <div className="brand-title" style={{ color: 'white' }}>RDMS — Dento-Medical Society Rwanda</div>
+              <div className="brand-sub" style={{ color: 'rgba(255,255,255,0.62)' }}>Rwanda's oral health future</div>
+            </div>
+          </Link>
+          <p>Uniting professionals, students, and communities to advance oral and public health through service delivery, prevention, research, and advocacy.</p>
+        </div>
+        <div className="footer-columns">
           <div>
             <h4>Navigate</h4>
             <Link to="/about">About</Link><br />

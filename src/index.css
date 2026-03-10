@@ -1441,22 +1441,41 @@ footer {
   box-shadow: var(--shadow-lg);
 }
 
-.footer-top {
+.footer-brand-center {
+  text-align: center;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  margin-bottom: 24px;
+}
+
+.footer-brand-center .brand {
+  display: inline-flex;
+}
+
+.footer-brand-center p {
+  color: rgba(255,255,255,0.7);
+  font-size: 14px;
+  line-height: 1.8;
+  max-width: 600px;
+  margin: 8px auto 0;
+}
+
+.footer-columns {
   display: grid;
-  grid-template-columns: 1.4fr repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 24px;
   padding-bottom: 22px;
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
-.footer-top p,
-.footer-top a {
+.footer-columns p,
+.footer-columns a {
   color: rgba(255,255,255,0.75);
   line-height: 1.8;
   font-size: 14px;
 }
 
-.footer-top h4 {
+.footer-columns h4 {
   color: rgba(255,255,255,0.6);
   font-size: 12px;
   text-transform: uppercase;
@@ -1822,8 +1841,8 @@ body.dark .mobile-menu a:hover { background: rgba(102,209,122,0.08); color: var(
   .hero-wrap,
   .about-grid,
   .contact-grid,
-  .footer-top {
-    grid-template-columns: 1fr;
+  .footer-columns {
+    grid-template-columns: repeat(2, 1fr);
   }
   .services-grid,
   .research-grid,
