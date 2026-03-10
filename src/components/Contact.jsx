@@ -30,7 +30,7 @@ export default function Contact() {
               </div>
               <div className="contact-item">
                 <div className="contact-badge">✉️</div>
-                <div><strong>Email</strong><span>[email protected]</span></div>
+                <div><strong>Email</strong><span>rdmspresident13@gmail.com</span></div>
               </div>
               <div className="contact-item">
                 <div className="contact-badge">🏛️</div>
