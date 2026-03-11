@@ -19,29 +19,27 @@ export default function Footer() {
         <div className="footer-columns">
           <div>
             <h4>Navigate</h4>
-            <Link to="/about">About</Link><br />
-            <Link to="/services">Services</Link><br />
-            <Link to="/gallery">Gallery</Link><br />
+            <Link to="/about">About</Link>
+            <Link to="/services">Services</Link>
+            <Link to="/gallery">Gallery</Link>
             <Link to="/contact">Contact</Link>
           </div>
           <div>
             <h4>Programs</h4>
-            <Link to="/services">School Screenings</Link><br />
-            <Link to="/services">Preventive Care</Link><br />
-            <Link to="/gallery">Mobile Clinics</Link><br />
+            <Link to="/services">School Screenings</Link>
+            <Link to="/services">Preventive Care</Link>
+            <Link to="/gallery">Mobile Clinics</Link>
             <Link to="/gallery">Research Academy</Link>
           </div>
           <div>
             <h4>Contact</h4>
-            <Link to="/contact">Ngoma, Huye</Link><br />
-            <Link to="/contact">+250 791 853 120</Link><br />
-            <Link to="/contact">rdmspresident13@gmail.com</Link><br />
-            <Link to="/contact">RDB Code: 143885158</Link>
+            <span>Ngoma, Huye</span>
+            <a href="tel:+250791853120">+250 791 853 120</a>
+            <a href="mailto:rdmspresident13@gmail.com">rdmspresident13@gmail.com</a>
+            <span>RDB Code: 143885158</span>
           </div>
-        </div>
-        <div className="footer-follow">
-          <h4>Follow Us</h4>
-          <div className="footer-social-row">
+          <div>
+            <h4>Follow Us</h4>
             <a href="https://x.com/RDMS_rw" target="_blank" rel="noopener noreferrer">𝕏 Twitter / X</a>
             <a href="https://www.instagram.com/rdms_rw/" target="_blank" rel="noopener noreferrer">📸 Instagram</a>
             <a href="https://www.linkedin.com/in/rdms-dento-medical-society-rwanda-24035029b" target="_blank" rel="noopener noreferrer">💼 LinkedIn</a>
