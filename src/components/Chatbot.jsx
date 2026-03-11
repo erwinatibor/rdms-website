@@ -71,13 +71,19 @@ export default function Chatbot() {
       setTimeout(() => inputRef.current?.focus(), 100);
     } else {
       document.body.style.overflow = '';
-      setMessages([]);
-      setInput('');
-      setShowQuick(true);
-      setTyping(false);
     }
     return () => { document.body.style.overflow = ''; };
   }, [open]);
+
+  const handleMinimize = () => setOpen(false);
+
+  const handleClose = () => {
+    setOpen(false);
+    setMessages([]);
+    setInput('');
+    setShowQuick(true);
+    setTyping(false);
+  };
 
   const addBotReply = (text) => {
     setTyping(true);
@@ -116,11 +122,11 @@ export default function Chatbot() {
       <button
         className={`chatbot-fab${open ? ' chatbot-fab-open' : ''}`}
         onClick={() => setOpen(!open)}
-        aria-label={open ? 'Close chat' : 'Open RDMS Assistant'}
+        aria-label={open ? 'Minimize chat' : 'Open RDMS Assistant'}
       >
         {open ? (
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
           </svg>
         ) : (
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -130,7 +136,7 @@ export default function Chatbot() {
       </button>
 
       {/* Overlay for mobile */}
-      {open && <div className="chatbot-overlay" onClick={() => setOpen(false)} />}
+      {open && <div className="chatbot-overlay" onClick={handleMinimize} />}
 
       {/* Chat window */}
       {open && (
@@ -149,11 +155,18 @@ export default function Chatbot() {
                 </div>
               </div>
             </div>
-            <button className="chatbot-close" onClick={() => setOpen(false)} aria-label="Close">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-              </svg>
-            </button>
+            <div className="chatbot-header-actions">
+              <button className="chatbot-minimize" onClick={handleMinimize} aria-label="Minimize">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                  <line x1="5" y1="12" x2="19" y2="12"/>
+                </svg>
+              </button>
+              <button className="chatbot-close" onClick={handleClose} aria-label="Close">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+              </button>
+            </div>
           </div>
 
           {/* Disclaimer */}

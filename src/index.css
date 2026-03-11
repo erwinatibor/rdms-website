@@ -2045,12 +2045,18 @@ body.dark .chatbot-window {
   50% { opacity: 0.4; }
 }
 
+.chatbot-header-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.chatbot-minimize,
 .chatbot-close {
   background: rgba(255,255,255,0.15);
   border: none;
   color: #fff;
-  width: 34px;
-  height: 34px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   cursor: pointer;
   display: flex;
@@ -2059,7 +2065,8 @@ body.dark .chatbot-window {
   transition: background 0.2s;
 }
 
-.chatbot-close:hover { background: rgba(255,255,255,0.3); }
+.chatbot-minimize:hover { background: rgba(255,255,255,0.3); }
+.chatbot-close:hover { background: rgba(255,80,80,0.5); }
 
 /* Disclaimer */
 .chatbot-disclaimer {
