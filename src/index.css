@@ -1893,6 +1893,10 @@ body.dark .mobile-menu a:hover { background: rgba(102,209,122,0.08); color: var(
   .nav-links { display: none; }
   .mobile-menu { display: block; }
   .nav.open .mobile-menu { max-height: 460px; }
+  .brand-sub { font-size: 9px; letter-spacing: 0.08em; }
+  .brand-mark { width: 40px; height: 40px; }
+  .brand-title { font-size: 13px; }
+  .brand { gap: 10px; }
   .nav-inner { padding: 12px 0; align-items: center; }
   .hero-wrap { grid-template-columns: 1fr; }
   .hero-copy, .hero-panel, .projects-shell, .academy-banner, .panel, .footer-card { padding: 24px; }
@@ -1918,6 +1922,10 @@ body.dark .mobile-menu a:hover { background: rgba(102,209,122,0.08); color: var(
   .socials { gap: 6px; }
   .social { padding: 8px 10px; font-size: 11px; border-radius: 8px; }
   .form-shell h3 { font-size: 26px !important; }
+  .brand-sub { font-size: 8px; letter-spacing: 0.05em; }
+  .brand-mark { width: 36px; height: 36px; }
+  .brand-title { font-size: 12px; }
+  .brand { gap: 8px; }
 }
 
 /* ── Chatbot ──────────────────────────────────── */
