@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 
 const photos = [
   '/RDMS (9).png',
@@ -17,6 +17,34 @@ const photos = [
   '/RDMS (31).png',
 ];
 
+function useSwipe(onSwipeLeft, onSwipeRight) {
+  const touchStart = useRef(null);
+  const touchEnd = useRef(null);
+  const minSwipe = 50;
+
+  const onTouchStart = useCallback((e) => {
+    touchEnd.current = null;
+    touchStart.current = e.targetTouches[0].clientX;
+  }, []);
+
+  const onTouchMove = useCallback((e) => {
+    touchEnd.current = e.targetTouches[0].clientX;
+  }, []);
+
+  const onTouchEnd = useCallback(() => {
+    if (!touchStart.current || !touchEnd.current) return;
+    const diff = touchStart.current - touchEnd.current;
+    if (Math.abs(diff) > minSwipe) {
+      if (diff > 0) onSwipeLeft();
+      else onSwipeRight();
+    }
+    touchStart.current = null;
+    touchEnd.current = null;
+  }, [onSwipeLeft, onSwipeRight]);
+
+  return { onTouchStart, onTouchMove, onTouchEnd };
+}
+
 export default function PhotoGallery() {
   const [lightbox, setLightbox] = useState(null);
   const [current, setCurrent] = useState(0);
@@ -24,7 +52,6 @@ export default function PhotoGallery() {
   const [paused, setPaused] = useState(false);
   const sectionRef = useRef(null);
 
-  // Intersection observer to detect if carousel is in viewport
   useEffect(() => {
     const el = sectionRef.current;
     if (!el) return;
@@ -36,7 +63,6 @@ export default function PhotoGallery() {
     return () => obs.disconnect();
   }, []);
 
-  // Auto-rotate when NOT in view
   useEffect(() => {
     if (isInView || paused) return;
     const timer = setInterval(() => {
@@ -54,7 +80,29 @@ export default function PhotoGallery() {
   const prev = () => goTo((current - 1 + photos.length) % photos.length);
   const next = () => goTo((current + 1) % photos.length);
 
-  // Get indices for visible cards (show 5 around current)
+  // Swipe for carousel
+  const carouselSwipe = useSwipe(next, prev);
+
+  // Lightbox navigation
+  const lbPrev = useCallback(() => {
+    setLightbox((lb) => {
+      if (!lb) return lb;
+      const i = (lb.index - 1 + photos.length) % photos.length;
+      return { src: photos[i], index: i };
+    });
+  }, []);
+
+  const lbNext = useCallback(() => {
+    setLightbox((lb) => {
+      if (!lb) return lb;
+      const i = (lb.index + 1) % photos.length;
+      return { src: photos[i], index: i };
+    });
+  }, []);
+
+  // Swipe for lightbox
+  const lightboxSwipe = useSwipe(lbNext, lbPrev);
+
   const getOffset = (i) => {
     let diff = i - current;
     if (diff > photos.length / 2) diff -= photos.length;
@@ -69,7 +117,10 @@ export default function PhotoGallery() {
         <h2>Project Photos</h2>
         <p className="lead">A visual record of RDMS Rwanda's outreach, events, and community programs.</p>
 
-        <div className="carousel-wrapper">
+        <div
+          className="carousel-wrapper"
+          {...carouselSwipe}
+        >
           <button className="carousel-btn carousel-btn-prev" onClick={prev} aria-label="Previous photo">‹</button>
 
           <div className="carousel-stage">
@@ -80,8 +131,6 @@ export default function PhotoGallery() {
 
               if (!isVisible) return null;
 
-              // When not in view: cards flip sideways (rotateY)
-              // When in view: standard carousel positioning
               const rotateY = !isInView ? offset * 35 : offset * 8;
               const translateX = offset * (isInView ? 120 : 80);
               const translateZ = isActive ? 60 : -(Math.abs(offset) * 80);
@@ -136,11 +185,15 @@ export default function PhotoGallery() {
       </div>
 
       {lightbox && (
-        <div className="lightbox-backdrop" onClick={() => setLightbox(null)}>
+        <div
+          className="lightbox-backdrop"
+          onClick={() => setLightbox(null)}
+          {...lightboxSwipe}
+        >
           <button className="lightbox-close" onClick={() => setLightbox(null)}>✕</button>
           <button
             className="lightbox-nav lightbox-prev"
-            onClick={(e) => { e.stopPropagation(); setLightbox({ src: photos[(lightbox.index - 1 + photos.length) % photos.length], index: (lightbox.index - 1 + photos.length) % photos.length }); }}
+            onClick={(e) => { e.stopPropagation(); lbPrev(); }}
           >‹</button>
           <img
             src={lightbox.src}
@@ -150,7 +203,7 @@ export default function PhotoGallery() {
           />
           <button
             className="lightbox-nav lightbox-next"
-            onClick={(e) => { e.stopPropagation(); setLightbox({ src: photos[(lightbox.index + 1) % photos.length], index: (lightbox.index + 1) % photos.length }); }}
+            onClick={(e) => { e.stopPropagation(); lbNext(); }}
           >›</button>
           <div className="lightbox-counter">{lightbox.index + 1} / {photos.length}</div>
         </div>

@@ -71,6 +71,10 @@ export default function Chatbot() {
       setTimeout(() => inputRef.current?.focus(), 100);
     } else {
       document.body.style.overflow = '';
+      setMessages([]);
+      setInput('');
+      setShowQuick(true);
+      setTyping(false);
     }
     return () => { document.body.style.overflow = ''; };
   }, [open]);
