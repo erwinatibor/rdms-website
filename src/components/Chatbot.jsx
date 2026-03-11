@@ -9,19 +9,15 @@ function matchQuery(input) {
   for (const entry of knowledgeBase) {
     for (const trigger of entry.triggers) {
       const t = trigger.toLowerCase();
-      // Exact match
       if (q === t) return entry.answer;
-      // Input contains trigger
       if (q.includes(t)) {
         const score = t.length / q.length + t.split(' ').length * 0.3;
         if (score > bestScore) { bestScore = score; best = entry.answer; }
       }
-      // Trigger contains input (for short queries)
       if (t.includes(q) && q.length > 2) {
         const score = q.length / t.length * 0.6;
         if (score > bestScore) { bestScore = score; best = entry.answer; }
       }
-      // Word overlap
       const qWords = q.split(/\s+/);
       const tWords = t.split(/\s+/);
       const overlap = qWords.filter(w => w.length > 2 && tWords.some(tw => tw.includes(w) || w.includes(tw))).length;
@@ -55,6 +51,7 @@ export default function Chatbot() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [showQuick, setShowQuick] = useState(true);
+  const [typing, setTyping] = useState(false);
   const endRef = useRef(null);
   const inputRef = useRef(null);
 
@@ -66,16 +63,24 @@ export default function Chatbot() {
 
   useEffect(() => {
     endRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages]);
+  }, [messages, typing]);
 
   useEffect(() => {
-    if (open) inputRef.current?.focus();
+    if (open) {
+      document.body.style.overflow = window.innerWidth <= 600 ? 'hidden' : '';
+      setTimeout(() => inputRef.current?.focus(), 100);
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
   }, [open]);
 
   const addBotReply = (text) => {
+    setTyping(true);
     setTimeout(() => {
+      setTyping(false);
       setMessages(prev => [...prev, { from: 'bot', text, time: new Date() }]);
-    }, 400);
+    }, 600);
   };
 
   const handleSend = () => {
@@ -84,7 +89,6 @@ export default function Chatbot() {
     setMessages(prev => [...prev, { from: 'user', text: q, time: new Date() }]);
     setInput('');
     setShowQuick(false);
-
     const answer = matchQuery(q);
     addBotReply(answer || botConfig.fallback);
   };
@@ -104,14 +108,14 @@ export default function Chatbot() {
 
   return (
     <>
-      {/* Floating toggle button */}
+      {/* FAB button */}
       <button
         className={`chatbot-fab${open ? ' chatbot-fab-open' : ''}`}
         onClick={() => setOpen(!open)}
         aria-label={open ? 'Close chat' : 'Open RDMS Assistant'}
       >
         {open ? (
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
           </svg>
         ) : (
@@ -121,19 +125,24 @@ export default function Chatbot() {
         )}
       </button>
 
+      {/* Overlay for mobile */}
+      {open && <div className="chatbot-overlay" onClick={() => setOpen(false)} />}
+
       {/* Chat window */}
       {open && (
         <div className="chatbot-window">
+          {/* Header */}
           <div className="chatbot-header">
             <div className="chatbot-header-info">
               <div className="chatbot-avatar">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                </svg>
+                <img src="/logo.png" alt="RDMS" style={{ width: 24, height: 24, objectFit: 'contain' }} />
               </div>
               <div>
                 <div className="chatbot-header-name">{botConfig.name}</div>
-                <div className="chatbot-header-status">Online</div>
+                <div className="chatbot-header-status">
+                  <span className="chatbot-online-dot" />
+                  Online
+                </div>
               </div>
             </div>
             <button className="chatbot-close" onClick={() => setOpen(false)} aria-label="Close">
@@ -143,8 +152,10 @@ export default function Chatbot() {
             </button>
           </div>
 
+          {/* Disclaimer */}
           <div className="chatbot-disclaimer">{botConfig.disclaimer}</div>
 
+          {/* Messages */}
           <div className="chatbot-messages">
             {messages.map((msg, i) => (
               <div key={i} className={`chatbot-msg chatbot-msg-${msg.from}`}>
@@ -155,6 +166,14 @@ export default function Chatbot() {
                 <div className="chatbot-time">{timeStr(msg.time)}</div>
               </div>
             ))}
+
+            {typing && (
+              <div className="chatbot-msg chatbot-msg-bot">
+                <div className="chatbot-bubble chatbot-bubble-bot chatbot-typing">
+                  <span /><span /><span />
+                </div>
+              </div>
+            )}
 
             {showQuick && messages.length > 0 && (
               <div className="chatbot-quick-replies">
@@ -168,6 +187,7 @@ export default function Chatbot() {
             <div ref={endRef} />
           </div>
 
+          {/* Input */}
           <div className="chatbot-input-bar">
             <input
               ref={inputRef}
